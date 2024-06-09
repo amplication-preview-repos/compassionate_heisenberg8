@@ -5,6 +5,14 @@ import { theme } from "./theme/theme";
 import Login from "./Login";
 import "./App.scss";
 import Dashboard from "./pages/Dashboard";
+import { SystemList } from "./system/SystemList";
+import { SystemCreate } from "./system/SystemCreate";
+import { SystemEdit } from "./system/SystemEdit";
+import { SystemShow } from "./system/SystemShow";
+import { DomainList } from "./domain/DomainList";
+import { DomainCreate } from "./domain/DomainCreate";
+import { DomainEdit } from "./domain/DomainEdit";
+import { DomainShow } from "./domain/DomainShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -30,7 +38,22 @@ const App = (): React.ReactElement => {
         theme={theme}
         dashboard={Dashboard}
         loginPage={Login}
-      ></Admin>
+      >
+        <Resource
+          name="System"
+          list={SystemList}
+          edit={SystemEdit}
+          create={SystemCreate}
+          show={SystemShow}
+        />
+        <Resource
+          name="Domain"
+          list={DomainList}
+          edit={DomainEdit}
+          create={DomainCreate}
+          show={DomainShow}
+        />
+      </Admin>
     </div>
   );
 };
